@@ -1,0 +1,273 @@
+{
+	"info": {
+		"_postman_id": "db56443f-f049-4143-ba72-b5aaf028c364",
+		"name": "CursoWebServiceChaveComposta",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26465949"
+	},
+	"item": [
+		{
+			"name": "Customers",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/customers",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"customers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Customer-pk-composto",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/customers/11999999999/123456789",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"customers",
+						"11999999999",
+						"123456789"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Customer-pk-composto",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": {\r\n        \"telephone\": \"11966666666\",\r\n        \"cpf\": \"12345678903\"\r\n    },\r\n    \"name\": \"Ariana\",\r\n    \"address\": \"Rua Nova Viçosa, 9900\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/customers",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"customers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Customer-pk-composto",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"address\" : \"Rua Nova Viçosa, 9000\",\r\n        \"name\": \"Hermes\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/customers/11999999999/123456789",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"customers",
+						"11999999999",
+						"123456789"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Customer-pk-composto",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/customers/11999999999/123456789",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"customers",
+						"11999999999",
+						"123456789"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Pizzas",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/pizzas",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"pizzas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Pizza-pk-composto",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/pizzas/14",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"pizzas",
+						"14"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Pizza",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"\",\r\n    \"name\": \"Calabreza com Mussarela\",\r\n    \"price\": 25.89\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/pizzas",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"pizzas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Pizza",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 17,\r\n    \"name\": \"Calabreza com Mussarela\",\r\n    \"price\": 35.00\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/pizzas/17",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"pizzas",
+						"17"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Pizza",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/pizzas/16",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"pizzas",
+						"16"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Request-pk-composto",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"amount\" : 2,\r\n    \"price\" : 60.34,\r\n    \"pizzaId\" : 1,\r\n    \"telephone\" : \"11999999999\",\r\n    \"cpf\" : \"123456789\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/requests",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"requests"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
