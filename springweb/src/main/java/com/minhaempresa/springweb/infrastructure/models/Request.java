@@ -5,6 +5,8 @@ import jakarta.persistence.*;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 /*
@@ -33,29 +35,28 @@ public class Request implements Serializable {
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss'Z'", timezone = "GMT") //ISO 8601
     private LocalDateTime date;
 
-    @Column(name = "amount")
-    private Integer amount;
-
-    @Column(name = "price")
-    private Double price;
-
-    @ManyToOne
-    @JoinColumn(name = "pizzaId")
-    private Pizza pizzaId;
-
     @ManyToOne
     @JoinColumns({@JoinColumn(name = "telephone"), @JoinColumn(name = "cpf")})
     private Customer customer;
 
+    @ManyToMany
+    @JoinTable(name = "tb_item_request",
+            joinColumns = @JoinColumn(name = "request_id"),
+            inverseJoinColumns = @JoinColumn(name = "pizza_id"))
+    private List<Pizza> pizzas = new ArrayList<>();
+
+    @Column(name = "price")
+    private Double price;
+
     public Request() {
     }
 
-    public Request(LocalDateTime date, Integer amount, Double price, Pizza pizzaId, Customer customer) {
+    public Request(LocalDateTime date, Customer customer, List<Pizza> pizzas, Double price) {
+        this.id = id;
         this.date = date;
-        this.amount = amount;
-        this.price = price;
-        this.pizzaId = pizzaId;
         this.customer = customer;
+        this.pizzas = pizzas;
+        this.price = price;
     }
 
     public Long getId() {
@@ -74,14 +75,6 @@ public class Request implements Serializable {
         this.date = date;
     }
 
-    public Integer getAmount() {
-        return amount;
-    }
-
-    public void setAmount(Integer amount) {
-        this.amount = amount;
-    }
-
     public Double getPrice() {
         return price;
     }
@@ -90,12 +83,8 @@ public class Request implements Serializable {
         this.price = price;
     }
 
-    public Pizza getPizzaId() {
-        return pizzaId;
-    }
-
-    public void setPizzaId(Pizza pizzaId) {
-        this.pizzaId = pizzaId;
+    public List<Pizza> getPizzas() {
+        return pizzas;
     }
 
     public Customer getCustomer() {
@@ -121,7 +110,11 @@ public class Request implements Serializable {
 
     @Override
     public String toString() {
-        return "Request{" + "id=" + id + ", date=" + date + ", amount=" + amount + ", price=" + price + ", pizzaId=" + pizzaId + ", customer=" + customer + '}';
+        return "Request{" +
+                "id=" + id +
+                ", date=" + date +
+                ", price=" + price +
+                ", customer=" + customer +
+                '}';
     }
 }
-

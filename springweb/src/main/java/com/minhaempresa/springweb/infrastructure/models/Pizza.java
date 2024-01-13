@@ -37,7 +37,7 @@ public class Pizza implements Serializable {
     private Double price;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "pizzaId")
+    @ManyToMany(mappedBy = "pizzas")
     private List<Request> requests = new ArrayList<>();
 
     public Pizza() {
@@ -98,4 +98,3 @@ public class Pizza implements Serializable {
                 '}';
     }
 }
-

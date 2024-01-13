@@ -17,7 +17,7 @@ import java.time.ZoneId;
 import java.util.Arrays;
 
 @Configuration
-@Profile(value = "test")
+@Profile("test")
 public class TestConfig implements CommandLineRunner {
     @Autowired
     private CustomerRepository customerRepository;
@@ -37,8 +37,7 @@ public class TestConfig implements CommandLineRunner {
         Customer customer = new Customer(customerPk, "Marcos", "Av. Paulista, 1578");
         customerRepository.save(customer);
 
-        Request request = new Request(LocalDateTime.now(ZoneId.of("UTC")), 2, pizza.getPrice(), pizza, customer);
+        Request request = new Request(LocalDateTime.now(ZoneId.of("UTC")), customer, Arrays.asList(pizza, pizza2, pizza3), 125.00);
         requestRepository.save(request);
     }
 }
-
